@@ -18,12 +18,12 @@ QLineEdit(parent)
     m_bChangeState = false;//true is changed, false is not changed
     m_iRow = -1;
     m_iColumn = -1;
-    m_strUnValidText = QString::fromLocal8Bit("---°--'.----");
-    QRegExp rxAngel(strCov.fromLocal8Bit("[0-1]\\d{2,2}°[0-5]'\\d.\\d{3,3}[ewEW]"));
+    m_strUnValidText = "---°--'.----";
+    QRegExp rxAngel("[0-1]\\d{2,2}°[0-5]'\\d.\\d{3,3}[ewEW]");
     validator = new QRegExpValidator(rxAngel, this);
     setValidator(validator);
-    setInputMask(strCov.fromLocal8Bit("000°00'.000A"));
-    setText(strCov.fromLocal8Bit("000°00'.000E"));
+    setInputMask("000°00'.000A");
+    setText("000°00'.000E");
     setAlignment(Qt::AlignRight);
     connect(this,SIGNAL(textChanged(const QString&)),this,SLOT(textEditing(const QString&)));
 }
@@ -99,7 +99,7 @@ void SeCommonLineEditLon::SetValid( bool bState, QString strText)
     if (bState)
     {
         //valid
-        QRegExp rxAngel(strCov.fromLocal8Bit("[0-1]\\d{2,2}°[0-5]\\d'.\\d{3,3}[ewEW]"));
+        QRegExp rxAngel("[0-1]\\d{2,2}°[0-5]\\d'.\\d{3,3}[ewEW]");
         if (NULL != validator)
         {
             delete validator;
@@ -107,13 +107,13 @@ void SeCommonLineEditLon::SetValid( bool bState, QString strText)
         }
         validator = new QRegExpValidator(rxAngel, this);
         setValidator(validator);
-        setInputMask(strCov.fromLocal8Bit("000°00'.000A"));
-        setText(strCov.fromLocal8Bit("000°00'.000E"));
+        setInputMask("000°00'.000A");
+        setText("000°00'.000E");
     }
     else
     {
         //unvalid
-        QRegExp rxAngel(strCov.fromLocal8Bit("------------"));
+        QRegExp rxAngel("------------");
         if (NULL != validator)
         {
             delete validator;
@@ -121,7 +121,7 @@ void SeCommonLineEditLon::SetValid( bool bState, QString strText)
         }
         validator = new QRegExpValidator(rxAngel, this);
         setValidator(validator);
-        setInputMask(strCov.fromLocal8Bit("XXXXXXXXXXXX"));
+        setInputMask("XXXXXXXXXXXX");
         setText(strText);
     }
 }
@@ -136,7 +136,7 @@ void SeCommonLineEditLon::focusInEvent( QFocusEvent * e )
     }
     //valid
     m_bEditState = true;
-    QRegExp rxAngel(strCov.fromLocal8Bit("[0-1]\\d{2,2}°[0-5]\\d'.\\d{3,3}[ewEW]"));
+    QRegExp rxAngel("[0-1]\\d{2,2}°[0-5]\\d'.\\d{3,3}[ewEW]");
     if (NULL != validator)
     {
         delete validator;
@@ -144,8 +144,8 @@ void SeCommonLineEditLon::focusInEvent( QFocusEvent * e )
     }
     validator = new QRegExpValidator(rxAngel, this);
     setValidator(validator);
-    setInputMask(strCov.fromLocal8Bit("000°00'.000A"));
-    setText(strCov.fromLocal8Bit("000°00'.000E"));
+    setInputMask("000°00'.000A");
+    setText("000°00'.000E");
     m_bChangeState = false;
 }
 
@@ -159,7 +159,7 @@ void SeCommonLineEditLon::focusOutEvent( QFocusEvent * e )
     }
     else if (!m_bState)
     {
-        QRegExp rxAngel(strCov.fromLocal8Bit("------"));
+        QRegExp rxAngel("------");
         if (NULL != validator)
         {
             delete validator;
@@ -167,7 +167,7 @@ void SeCommonLineEditLon::focusOutEvent( QFocusEvent * e )
         }
         validator = new QRegExpValidator(rxAngel, this);
         setValidator(validator);
-        setInputMask(strCov.fromLocal8Bit("XXXXXX"));
+        setInputMask("XXXXXX");
         setText(m_strUnValidText);
     }
     m_bEditState = false;
@@ -209,12 +209,12 @@ QLineEdit(parent)
     m_bChangeState = false;//true is changed, false is not changed
     m_iRow = -1;
     m_iColumn = -1;
-    m_strUnValidText = QString::fromLocal8Bit("--°--'.----");
-    QRegExp rxAngel(strCov.fromLocal8Bit("[0-8]\\d°[0-5]\\d'.\\d{3,3}[SNsn]"));
+    m_strUnValidText = "--°--'.----";
+    QRegExp rxAngel("[0-8]\\d°[0-5]\\d'.\\d{3,3}[SNsn]");
     validator = new QRegExpValidator(rxAngel, this);
     setValidator(validator);
-    setInputMask(strCov.fromLocal8Bit("00°00'.000A"));
-    setText(strCov.fromLocal8Bit(("00°00'.000N")));
+    setInputMask("00°00'.000A");
+    setText("00°00'.000N");
     setAlignment(Qt::AlignRight);
     connect(this,SIGNAL(textChanged(const QString&)),this,SLOT(textEditing(const QString&)));
 }
@@ -274,7 +274,7 @@ void SeCommonLineEditLat::SetValid( bool bState, QString strText )
     if (bState)
     {
         //valid
-        QRegExp rxAngel(strCov.fromLocal8Bit("[0-8]\\d°[0-5]\\d'.\\d{3,3}[SNsn]"));
+        QRegExp rxAngel("[0-8]\\d°[0-5]\\d'.\\d{3,3}[SNsn]");
         if (NULL != validator)
         {
             delete validator;
@@ -282,13 +282,13 @@ void SeCommonLineEditLat::SetValid( bool bState, QString strText )
         }
         validator = new QRegExpValidator(rxAngel, this);
         setValidator(validator);
-        setInputMask(strCov.fromLocal8Bit("00°00'.000A"));
-        setText(strCov.fromLocal8Bit("00°00'.000N"));
+        setInputMask("00°00'.000A");
+        setText("00°00'.000N");
     }
     else
     {
         //unvalid
-        QRegExp rxAngel(strCov.fromLocal8Bit("-----------"));
+        QRegExp rxAngel("-----------");
         if (NULL != validator)
         {
             delete validator;
@@ -296,7 +296,7 @@ void SeCommonLineEditLat::SetValid( bool bState, QString strText )
         }
         validator = new QRegExpValidator(rxAngel, this);
         setValidator(validator);
-        setInputMask(strCov.fromLocal8Bit("XXXXXXXXXXX"));
+        setInputMask("XXXXXXXXXXX");
         setText(strText);
     }
 }
@@ -311,7 +311,7 @@ void SeCommonLineEditLat::focusInEvent( QFocusEvent * e )
     }
     //valid
     m_bEditState = true;
-    QRegExp rxAngel(strCov.fromLocal8Bit("[0-8]\\d°[0-5]\\d'.\\d{3,3}[SNsn]"));
+    QRegExp rxAngel("[0-8]\\d°[0-5]\\d'.\\d{3,3}[SNsn]");
     if (NULL != validator)
     {
         delete validator;
@@ -319,8 +319,8 @@ void SeCommonLineEditLat::focusInEvent( QFocusEvent * e )
     }
     validator = new QRegExpValidator(rxAngel, this);
     setValidator(validator);
-    setInputMask(strCov.fromLocal8Bit("00°00'.000A"));
-    setText(strCov.fromLocal8Bit("00°00'.000N"));
+    setInputMask("00°00'.000A");
+    setText("00°00'.000N");
     m_bChangeState = false;
 }
 
@@ -334,7 +334,7 @@ void SeCommonLineEditLat::focusOutEvent( QFocusEvent * e )
     }
     else if (!m_bState)
     {
-        QRegExp rxAngel(strCov.fromLocal8Bit("-----------"));
+        QRegExp rxAngel("-----------");
         if (NULL != validator)
         {
             delete validator;
@@ -342,7 +342,7 @@ void SeCommonLineEditLat::focusOutEvent( QFocusEvent * e )
         }
         validator = new QRegExpValidator(rxAngel, this);
         setValidator(validator);
-        setInputMask(strCov.fromLocal8Bit("XXXXXXXXXXX"));
+        setInputMask("XXXXXXXXXXX");
         setText(m_strUnValidText);
     }
     m_bEditState = false;
@@ -384,12 +384,12 @@ SeCommonLineEditDegree::SeCommonLineEditDegree(QWidget* parent):QLineEdit(parent
     m_bChangeState = false;//true is changed, false is not changed
     m_iRow = -1;
     m_iColumn = -1;
-    m_strUnValidText = QString::fromLocal8Bit("---°--.---'");
-    QRegExp rxAngel(strCov.fromLocal8Bit("[0-3]\\d{2,2}°[0-5]\\d.\\d{3,3}'"));
+    m_strUnValidText = "---°--.---'";
+    QRegExp rxAngel("[0-3]\\d{2,2}°[0-5]\\d.\\d{3,3}'");
     validator = new QRegExpValidator(rxAngel, this);
     setValidator(validator);
-    setInputMask(strCov.fromLocal8Bit("000°00.000'"));
-    setText(strCov.fromLocal8Bit("000°00.000'"));
+    setInputMask("000°00.000'");
+    setText("000°00.000'");
     setAlignment(Qt::AlignRight);
     connect(this,SIGNAL(textChanged(const QString&)),this,SLOT(textEditing(const QString&)));
 }
@@ -489,7 +489,7 @@ void SeCommonLineEditDegree::SetValid( bool bState, QString strText)
     if (bState)
     {
         //valid
-        QRegExp rxAngel(strCov.fromLocal8Bit("[0-3]\\d{2,2}°[0-5]\\d.\\d{3,3}'"));
+        QRegExp rxAngel("[0-3]\\d{2,2}°[0-5]\\d.\\d{3,3}'");
         if (NULL != validator)
         {
             delete validator;
@@ -497,13 +497,13 @@ void SeCommonLineEditDegree::SetValid( bool bState, QString strText)
         }
         validator = new QRegExpValidator(rxAngel, this);
         setValidator(validator);
-        setInputMask(strCov.fromLocal8Bit("000°00.000'"));
-        setText(strCov.fromLocal8Bit("000°00.000'"));
+        setInputMask("000°00.000'");
+        setText("000°00.000'");
     }
     else
     {
         //unvalid
-        QRegExp rxAngel(strCov.fromLocal8Bit("-----------"));
+        QRegExp rxAngel("-----------");
         if (NULL != validator)
         {
             delete validator;
@@ -511,7 +511,7 @@ void SeCommonLineEditDegree::SetValid( bool bState, QString strText)
         }
         validator = new QRegExpValidator(rxAngel, this);
         setValidator(validator);
-        setInputMask(strCov.fromLocal8Bit("XXXXXXXXXXX"));
+        setInputMask("XXXXXXXXXXX");
         setText(strText);
     }
 }
@@ -526,7 +526,7 @@ void SeCommonLineEditDegree::focusInEvent( QFocusEvent * e )
     }
     //valid
     m_bEditState = true;
-    QRegExp rxAngel(strCov.fromLocal8Bit("[0-3]\\d{2,2}°[0-5]\\d.\\d{3,3}'"));
+    QRegExp rxAngel("[0-3]\\d{2,2}°[0-5]\\d.\\d{3,3}'");
     if (NULL != validator)
     {
         delete validator;
@@ -534,8 +534,8 @@ void SeCommonLineEditDegree::focusInEvent( QFocusEvent * e )
     }
     validator = new QRegExpValidator(rxAngel, this);
     setValidator(validator);
-    setInputMask(strCov.fromLocal8Bit("000°00.000'"));
-    setText(strCov.fromLocal8Bit("000°00.000'"));
+    setInputMask("000°00.000'");
+    setText("000°00.000'");
     m_bChangeState = false;
 }
 
@@ -549,7 +549,7 @@ void SeCommonLineEditDegree::focusOutEvent( QFocusEvent * e )
     }
     else if (!m_bState)
     {
-        QRegExp rxAngel(strCov.fromLocal8Bit("-----------"));
+        QRegExp rxAngel("-----------");
         if (NULL != validator)
         {
             delete validator;
@@ -557,7 +557,7 @@ void SeCommonLineEditDegree::focusOutEvent( QFocusEvent * e )
         }
         validator = new QRegExpValidator(rxAngel, this);
         setValidator(validator);
-        setInputMask(strCov.fromLocal8Bit("XXXXXXXXXXX"));
+        setInputMask("XXXXXXXXXXX");
         setText(m_strUnValidText);
     }
     m_bEditState = false;

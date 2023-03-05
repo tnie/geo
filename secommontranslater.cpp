@@ -52,7 +52,7 @@ QString SeCommonTranslater::FormatLatitude(const double lat, const int fmtMode)
                 .append(QString::number(fmtMode));
         case 0: // 返回格式为"00°00'.000N"
             FormatDms(fabs(lat), &degree, &minute, &dot_minute, 3);
-            return QString(QString::fromLocal8Bit("0%1°%2'.%3"))
+            return QString("0%1°%2'.%3")
                 .arg(QString::number(degree))
                 .arg(QString::number(minute))
                 .arg(QString::number(dot_minute))
@@ -64,7 +64,7 @@ QString SeCommonTranslater::FormatLatitude(const double lat, const int fmtMode)
             sprintf(buf,
                 "%-2.2d°%-2.2d'.%-3.3d",
                 degree, minute, dot_minute);
-            return QString(QString::fromLocal8Bit(buf))
+            return QString(buf)
                 .append(lat >=0 ? "N": "S");
     }
 }
@@ -106,7 +106,7 @@ QString SeCommonTranslater::FormatLongitude(const double lon, const int fmtMode)
                 .append(QString::number(fmtMode));
         case 0: // 返回格式为"00°00'.000E"
             FormatDms(fabs(lon), &degree, &minute, &dot_minute, 3);
-            return QString(QString::fromLocal8Bit("0%1°%2'.%3"))
+            return QString("0%1°%2'.%3")
                 .arg(QString::number(degree))
                 .arg(QString::number(minute))
                 .arg(QString::number(dot_minute))
@@ -118,7 +118,7 @@ QString SeCommonTranslater::FormatLongitude(const double lon, const int fmtMode)
             sprintf(buf,
                 "%-3.3d°%-2.2d'.%-3.3d",
                 degree, minute, dot_minute);
-            return QString(QString::fromLocal8Bit(buf))
+            return QString(buf)
                 .append(lon >=0 ? "E": "W");
     }
 }
@@ -300,7 +300,7 @@ QString SeCommonTranslater::FormatAngle(const double angle)
     char buf[32];
     memset(buf, 0, sizeof(buf));
     sprintf(buf, "%-3.3d°%-2.2d.%-3.3d'", degree, minute, dot_minute);
-    return (QString::fromLocal8Bit(buf));
+    return (buf);
 
 }
 // FormatSqlLog - 获取std::string格式的sql语句
