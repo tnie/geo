@@ -1,17 +1,17 @@
 #ifndef COMMONLINEEDIT_H
 #define COMMONLINEEDIT_H
 
-#include "baseEdit.h"
+#include <QLineEdit>
 #include <QComboBox>
 #include <QRegExpValidator>
 #include <QValidator>
-#include "qevent.h"
+#include <qevent.h>
 #include <QLabel>
 
 
 //	经度模式编辑框
 //	输入范围 000°00'.000[W] 到 179°59'.999[E]
-class SeCommonLineEditLon: public BaseLineEdit {
+class SeCommonLineEditLon: public QLineEdit {
     Q_OBJECT
 
 public:
@@ -60,7 +60,7 @@ private:
 
 //纬度模式编辑框
 //	输入范围 00°00'.000[S] 到 89°59'.999[N]
-class SeCommonLineEditLat: public BaseLineEdit {
+class SeCommonLineEditLat: public QLineEdit {
     Q_OBJECT
 
 public:
@@ -109,7 +109,7 @@ private:
 
 //	角模式编辑框
 //	输入范围 000°00.000' 到 359°59.999'
-class SeCommonLineEditDegree: public BaseLineEdit {
+class SeCommonLineEditDegree: public QLineEdit {
     Q_OBJECT
 
 public:
@@ -151,7 +151,7 @@ private:
 };
 
 //speed .000
-class CLineEditSpeed: public BaseLineEdit {
+class CLineEditSpeed: public QLineEdit {
     Q_OBJECT
 
 public:
@@ -207,7 +207,7 @@ private:
 };
 
 //distance large .000
-class CLineEditDistance: public BaseLineEdit {
+class CLineEditDistance: public QLineEdit {
     Q_OBJECT
 
 public:
@@ -260,7 +260,7 @@ private:
 };
 
 //draft .000
-class CLineEditDraft: public BaseLineEdit {
+class CLineEditDraft: public QLineEdit {
     Q_OBJECT
 
 public:
@@ -319,15 +319,15 @@ protected:
 
     };
 };
-class QLineEditEnter: public BaseLineEdit {
+class QLineEditEnter: public QLineEdit {
     Q_OBJECT
 public:
-    QLineEditEnter(QWidget *parent = 0) : BaseLineEdit(parent)
+    QLineEditEnter(QWidget *parent = 0) : QLineEdit(parent)
     {};
 protected:
     virtual void keyPressEvent(QKeyEvent * event)
     {
-        BaseLineEdit::keyPressEvent(event);
+        QLineEdit::keyPressEvent(event);
         int iKey = event->key();
         if (iKey == Qt::Key_Return || iKey == Qt::Key_Enter)
         {
@@ -338,10 +338,10 @@ protected:
     }
 };
 
-class QLineEditNum: public BaseLineEdit {
+class QLineEditNum: public QLineEdit {
     Q_OBJECT
 public:
-    QLineEditNum(QWidget *parent = 0) : BaseLineEdit(parent)
+    QLineEditNum(QWidget *parent = 0) : QLineEdit(parent)
     {};
 protected:
     virtual void focusOutEvent( QFocusEvent * e )
@@ -350,7 +350,7 @@ protected:
     }
     virtual void keyPressEvent(QKeyEvent * event)
     {
-        BaseLineEdit::keyPressEvent(event);
+        QLineEdit::keyPressEvent(event);
         int iKey = event->key();
         if (iKey == Qt::Key_Return || iKey == Qt::Key_Enter)
         {

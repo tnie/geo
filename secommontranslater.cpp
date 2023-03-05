@@ -42,9 +42,9 @@ QString SeCommonTranslater::FormatLatitude(const double lat, const int fmtMode)
     if (fabs(lat) > 90)
         return QString("not in value range: %1").arg(QString::number(lat, 'f'));
 
-    u_int degree = 0;
-    u_int minute = 0;
-    u_int dot_minute = 0;
+    unsigned int degree = 0;
+    unsigned int minute = 0;
+    unsigned int dot_minute = 0;
 
     switch (fmtMode) {
         default:
@@ -96,9 +96,9 @@ QString SeCommonTranslater::FormatLongitude(const double lon, const int fmtMode)
     if (fabs(lon) > 180)
         return QString("not in value range: %1").arg(QString::number(lon, 'f'));
 
-    u_int degree = 0;
-    u_int minute = 0;
-    u_int dot_minute = 0;
+    unsigned int degree = 0;
+    unsigned int minute = 0;
+    unsigned int dot_minute = 0;
 
     switch (fmtMode) {
         default:
@@ -292,9 +292,9 @@ QString SeCommonTranslater::FormatAngle(const double angle)
     if (angle >= 360 || angle <0)
         return QString("not in value range: %1").arg(QString::number(angle, 'f'));
 
-    u_int degree = 0;
-    u_int minute = 0;
-    u_int dot_minute = 0;
+    unsigned int degree = 0;
+    unsigned int minute = 0;
+    unsigned int dot_minute = 0;
 
     FormatDms(fabs(angle), &degree, &minute, &dot_minute, 3);
     char buf[32];

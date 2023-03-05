@@ -12,7 +12,7 @@ SeCommonLineEditLon::~SeCommonLineEditLon(void){
     delete validator;
 }
 SeCommonLineEditLon::SeCommonLineEditLon(QWidget* parent):
-BaseLineEdit(parent)
+QLineEdit(parent)
 {
     m_bIsInEdit = false;
     m_bState = true;//true is valid ,false is unvalid
@@ -131,7 +131,7 @@ void SeCommonLineEditLon::SetValid( bool bState, QString strText)
 void SeCommonLineEditLon::focusInEvent( QFocusEvent * e )
 {
     m_bIsInEdit = true;
-    BaseLineEdit::focusInEvent(e);
+    QLineEdit::focusInEvent(e);
     if (this->isReadOnly() || !(this->isEnabled()) || m_bState)
     {
         return;
@@ -154,7 +154,7 @@ void SeCommonLineEditLon::focusInEvent( QFocusEvent * e )
 void SeCommonLineEditLon::focusOutEvent( QFocusEvent * e )
 {
     m_bIsInEdit = false;
-    BaseLineEdit::focusOutEvent(e);
+    QLineEdit::focusOutEvent(e);
     if(!m_bState && m_bChangeState)
     {
         m_bState = true;
@@ -186,7 +186,7 @@ void SeCommonLineEditLon::focusOutEvent( QFocusEvent * e )
 
 void SeCommonLineEditLon::keyPressEvent( QKeyEvent * event )
 {
-    BaseLineEdit::keyPressEvent(event);
+    QLineEdit::keyPressEvent(event);
     int iKey = event->key();
     if (iKey == Qt::Key_Return || iKey == Qt::Key_Enter)
     {
@@ -203,7 +203,7 @@ SeCommonLineEditLat::~SeCommonLineEditLat(void){
     delete validator;
 }
 SeCommonLineEditLat::SeCommonLineEditLat(QWidget* parent):
-BaseLineEdit(parent)
+QLineEdit(parent)
 {
     m_bIsInEdit = false;
     m_bState = true;//true is valid ,false is unvalid
@@ -306,7 +306,7 @@ void SeCommonLineEditLat::SetValid( bool bState, QString strText )
 void SeCommonLineEditLat::focusInEvent( QFocusEvent * e )
 {
     m_bIsInEdit = true;
-    BaseLineEdit::focusInEvent(e);
+    QLineEdit::focusInEvent(e);
     if (this->isReadOnly() || !(this->isEnabled()) || m_bState)
     {
         return;
@@ -329,7 +329,7 @@ void SeCommonLineEditLat::focusInEvent( QFocusEvent * e )
 void SeCommonLineEditLat::focusOutEvent( QFocusEvent * e )
 {
     m_bIsInEdit = false;
-    BaseLineEdit::focusOutEvent(e);
+    QLineEdit::focusOutEvent(e);
     if(!m_bState && m_bChangeState)
     {
         m_bState = true;
@@ -362,7 +362,7 @@ void SeCommonLineEditLat::focusOutEvent( QFocusEvent * e )
 void SeCommonLineEditLat::keyPressEvent( QKeyEvent * event )
 {
     //int cursorPos = cursorPosition();
-    BaseLineEdit::keyPressEvent(event);
+    QLineEdit::keyPressEvent(event);
     //cursorPos = cursorPosition();
     int iKey = event->key();
     if (iKey == Qt::Key_Return || iKey == Qt::Key_Enter)
@@ -379,7 +379,7 @@ SeCommonLineEditDegree::~SeCommonLineEditDegree(void){
     disconnect(this,SIGNAL(textChanged(const QString&)),this,SLOT(textEditing(const QString&)));
     delete validator;
 }
-SeCommonLineEditDegree::SeCommonLineEditDegree(QWidget* parent):BaseLineEdit(parent){
+SeCommonLineEditDegree::SeCommonLineEditDegree(QWidget* parent):QLineEdit(parent){
     m_bIsInEdit = false;
     m_bState = true;//true is valid ,false is unvalid
     m_bEditState = false;//true is infocus， false is outfocus
@@ -521,7 +521,7 @@ void SeCommonLineEditDegree::SetValid( bool bState, QString strText)
 void SeCommonLineEditDegree::focusInEvent( QFocusEvent * e )
 {
     m_bIsInEdit = true;
-    BaseLineEdit::focusInEvent(e);
+    QLineEdit::focusInEvent(e);
     if (this->isReadOnly() || !(this->isEnabled()) || m_bState)
     {
         return;
@@ -544,7 +544,7 @@ void SeCommonLineEditDegree::focusInEvent( QFocusEvent * e )
 void SeCommonLineEditDegree::focusOutEvent( QFocusEvent * e )
 {
     m_bIsInEdit = false;
-    BaseLineEdit::focusOutEvent(e);
+    QLineEdit::focusOutEvent(e);
     if(!m_bState && m_bChangeState)
     {
         m_bState = true;
@@ -576,7 +576,7 @@ void SeCommonLineEditDegree::focusOutEvent( QFocusEvent * e )
 
 void SeCommonLineEditDegree::keyPressEvent( QKeyEvent * event )
 {
-    BaseLineEdit::keyPressEvent(event);
+    QLineEdit::keyPressEvent(event);
     int iKey = event->key();
     if (iKey == Qt::Key_Return || iKey == Qt::Key_Enter)
     {
@@ -594,7 +594,7 @@ static int iPMapAllUnitCount = 0;
 static QString strUnitValue = "kn";
 static int iMaxValue = 99;
 CLineEditSpeed::CLineEditSpeed( QWidget* parent):
-BaseLineEdit(parent)
+QLineEdit(parent)
 {
     m_bIsInEdit = false;
     m_bNeTag = false;
@@ -772,7 +772,7 @@ void CLineEditSpeed::SetValid( bool bState, QString strText )
 void CLineEditSpeed::focusInEvent( QFocusEvent * e )
 {
     m_bIsInEdit = true;
-    BaseLineEdit::focusInEvent(e);
+    QLineEdit::focusInEvent(e);
     if (this->isReadOnly() || !(this->isEnabled()) || m_bState)
     {
         return;
@@ -790,7 +790,7 @@ void CLineEditSpeed::focusInEvent( QFocusEvent * e )
 void CLineEditSpeed::focusOutEvent( QFocusEvent * e )
 {
     m_bIsInEdit = false;
-    BaseLineEdit::focusOutEvent(e);
+    QLineEdit::focusOutEvent(e);
     if(!m_bState && m_bChangeState)
     {
         m_bState = true;
@@ -823,7 +823,7 @@ void CLineEditSpeed::focusOutEvent( QFocusEvent * e )
 
 void CLineEditSpeed::keyPressEvent( QKeyEvent * event )
 {
-    BaseLineEdit::keyPressEvent(event);
+    QLineEdit::keyPressEvent(event);
     int iKey = event->key();
     if (iKey == Qt::Key_Return || iKey == Qt::Key_Enter)
     {
@@ -926,7 +926,7 @@ static int pMapAllDisUnitCount = 0;
 static QString strDisUnitValue = "NM";
 //static int iDisMaxValue = 500000;
 CLineEditDistance::CLineEditDistance(QWidget* parent, int maxVal):
-BaseLineEdit(parent)
+QLineEdit(parent)
 {
     bPress_changeUnit = false;
     m_bState = true;//true is valid ,false is unvalid
@@ -989,7 +989,7 @@ void CLineEditDistance::SetValid( bool bState, QString strText )
 
 void CLineEditDistance::focusInEvent( QFocusEvent * e )
 {
-    BaseLineEdit::focusInEvent(e);
+    QLineEdit::focusInEvent(e);
     if (this->isReadOnly() || !(this->isEnabled()) || m_bState)
     {
         return;
@@ -1007,7 +1007,7 @@ void CLineEditDistance::focusInEvent( QFocusEvent * e )
 
 void CLineEditDistance::focusOutEvent( QFocusEvent * e )
 {
-    BaseLineEdit::focusOutEvent(e);
+    QLineEdit::focusOutEvent(e);
     if(!m_bState && m_bChangeState)
     {
         m_bState = true;
@@ -1081,7 +1081,7 @@ void CLineEditDistance::mouseDoubleClickEvent(QMouseEvent *)
 
 void CLineEditDistance::mousePressEvent(QMouseEvent *e)
 {
-    BaseLineEdit::mousePressEvent(e);
+    QLineEdit::mousePressEvent(e);
     int iSelect = cursorPosition();
     QString strText = text();
     strText.remove(strUnitInfo);
@@ -1123,7 +1123,7 @@ void CLineEditDistance::mousePressEvent(QMouseEvent *e)
 
 void CLineEditDistance::keyPressEvent( QKeyEvent * event )
 {
-    BaseLineEdit::keyPressEvent(event);
+    QLineEdit::keyPressEvent(event);
     int iKey = event->key();
     if (iKey == Qt::Key_Return || iKey == Qt::Key_Enter)
     {
@@ -1428,7 +1428,7 @@ static int pMapAllDraftUnitCount = 0;
 static QString strDraftUnitValue = "m";
 static int iDraftMaxValue = 500;
 CLineEditDraft::CLineEditDraft( QWidget* parent):
-BaseLineEdit(parent)
+QLineEdit(parent)
 {
     m_bState = true;//true is valid ,false is unvalid
     m_bEditState = false;//true is infocus， false is outfocus
@@ -1489,7 +1489,7 @@ void CLineEditDraft::SetValid( bool bState, QString strText )
 
 void CLineEditDraft::focusInEvent( QFocusEvent * e )
 {
-    BaseLineEdit::focusInEvent(e);
+    QLineEdit::focusInEvent(e);
     if (this->isReadOnly() || !(this->isEnabled()) || m_bState)
     {
         return;
@@ -1506,7 +1506,7 @@ void CLineEditDraft::focusInEvent( QFocusEvent * e )
 
 void CLineEditDraft::focusOutEvent( QFocusEvent * e )
 {
-    BaseLineEdit::focusOutEvent(e);
+    QLineEdit::focusOutEvent(e);
     if(!m_bState && m_bChangeState)
     {
         m_bState = true;
@@ -1539,7 +1539,7 @@ void CLineEditDraft::focusOutEvent( QFocusEvent * e )
 
 void CLineEditDraft::keyPressEvent( QKeyEvent * event )
 {
-    BaseLineEdit::keyPressEvent(event);
+    QLineEdit::keyPressEvent(event);
     int iKey = event->key();
     if (iKey == Qt::Key_Return || iKey == Qt::Key_Enter)
     {

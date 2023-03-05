@@ -1,8 +1,8 @@
 #ifndef SECOMMONTRANSLATER_H
 #define SECOMMONTRANSLATER_H
 
-#include <QObject>
-class SeCommonTranslater: public QObject {
+#include <QString>
+class SeCommonTranslater{
 public:
     SeCommonTranslater() {}
 
