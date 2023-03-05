@@ -99,7 +99,7 @@ public:
     bUnit-是否包含正负符号单位
     sAccu-显示精度
     */
-    static QString FormatUnit(double dValue, QString sUnit, int nLength, bool bUnit, char* sAccu = "%.3f");
+    static QString FormatUnit(double dValue, QString sUnit, int nLength, bool bUnit, const char* sAccu = "%.3f");
 };
 
 #endif // SECOMMONTRANSLATER_H

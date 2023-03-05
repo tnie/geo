@@ -336,7 +336,7 @@ std::string SeCommonTranslater::FormatTimeRangeFromSecond(int iTime)
     return std::string(cBuffer);
 }
 
-QString SeCommonTranslater::FormatUnit(double dValue, QString sUnit, int nLength, bool bUnit, char* sAccu )
+QString SeCommonTranslater::FormatUnit(double dValue, QString sUnit, int nLength, bool bUnit, const char* sAccu )
 {
     QString strUnit = "";
     QString strUnitRecord = "";

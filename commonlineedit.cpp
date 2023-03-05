@@ -1,9 +1,7 @@
-//#include "Header_pch.h"
 #include <QDate>
 #include "secommontranslater.h"
 #include "commonlineedit.h"
 #include "qevent.h"
-#include "qdebug.h"
 
 //	经度模式编辑框
 //	输入范围 000°00'.000[W] 到 179°59'.999[E]
