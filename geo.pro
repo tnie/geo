@@ -9,13 +9,17 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    commonlineedit.cpp \
     geo.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    secommontranslater.cpp
 
 HEADERS += \
+    commonlineedit.h \
     geo.h \
-    mainwindow.h
+    mainwindow.h \
+    secommontranslater.h
 
 FORMS += \
     mainwindow.ui
