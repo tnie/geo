@@ -39,9 +39,9 @@ signals:
     void  FinishEdit(double dDegree);
 protected:
     //virtual void paintEvent(QPaintEvent*) ;
-    virtual void focusInEvent(QFocusEvent * e);
-    virtual void focusOutEvent(QFocusEvent * e);
-    virtual void keyPressEvent(QKeyEvent * event);
+    virtual void focusInEvent(QFocusEvent * e) override;
+    virtual void focusOutEvent(QFocusEvent * e) override;
+    virtual void keyPressEvent(QKeyEvent * event) override;
 protected slots:
     void	textEditing(const QString& text);
 
@@ -70,11 +70,6 @@ public:
     double getDegree();
     void inputText(double dLat);
     void SetValid(bool bState, QString strText = QString::fromLocal8Bit("--°--'.----"));
-    void SetRowColumn(int iRow, int iColumn)
-    {
-        m_iRow = iRow;
-        m_iColumn = iColumn;
-    }
     bool GetValid()
     {
         return m_bState;
@@ -84,7 +79,6 @@ public:
         return m_bIsInEdit;
     }
 signals:
-    void  textFinishEdit(int iRow, int icolumn, double dDegree);
     void  FinishEdit(double dDegree);
 protected:
     //virtual void mousePressEvent(QMouseEvent*);
@@ -95,15 +89,11 @@ protected slots:
     void	textEditing(const QString& text);
 
 private:
-    QString preText;
     QValidator* validator;
-    QString strCov;
     bool m_bState;
     bool m_bEditState;
     bool m_bChangeState;
     QString m_strUnValidText;
-    int m_iRow;
-    int m_iColumn;
     bool m_bIsInEdit;
 };
 

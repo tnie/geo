@@ -207,8 +207,6 @@ QLineEdit(parent)
     m_bState = true;//true is valid ,false is unvalid
     m_bEditState = false;//true is infocus， false is outfocus
     m_bChangeState = false;//true is changed, false is not changed
-    m_iRow = -1;
-    m_iColumn = -1;
     m_strUnValidText = "--°--'.----";
     QRegExp rxAngel("[0-8]\\d°[0-5]\\d'.\\d{3,3}[SNsn]");
     validator = new QRegExpValidator(rxAngel, this);
@@ -347,11 +345,7 @@ void SeCommonLineEditLat::focusOutEvent( QFocusEvent * e )
     }
     m_bEditState = false;
     m_bChangeState = false;
-    if (m_bState && m_iRow != -1 && m_iColumn != -1)
-    {
-        emit textFinishEdit(m_iRow, m_iColumn, getDegree());
-    }
-    else
+    if (m_bState)
     {
         emit FinishEdit(getDegree());
     }
