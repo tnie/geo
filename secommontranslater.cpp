@@ -3,7 +3,6 @@
 #include <QRegExpValidator>
 #include <QStringList>
 #include "math.h"
-#include "stdio.h"
 
 QString strCov = "";
 // FormatDms - 格式化度数
