@@ -11,6 +11,8 @@ public:
     QString fmt();
     static QString fmt(const Lat&);
     static QString fmt(double);
+//    不对外提供格式化后的字符串转回 double 的接口。
+//    如果提供上述接口会造成精度丢失，又无法避免用户滥用
 private:
     double v;
 };
