@@ -11,6 +11,7 @@ CONFIG += c++11
 SOURCES += \
     commonlineedit.cpp \
     geo.cpp \
+    glineedit.cpp \
     main.cpp \
     mainwindow.cpp \
     secommontranslater.cpp
@@ -18,6 +19,7 @@ SOURCES += \
 HEADERS += \
     commonlineedit.h \
     geo.h \
+    glineedit.h \
     mainwindow.h \
     secommontranslater.h
 
@@ -28,3 +30,6 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES += \
+    README.md
