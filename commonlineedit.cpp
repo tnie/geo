@@ -232,13 +232,6 @@ double SeCommonLineEditLat::getDegree()
     }
     return SeCommonTranslater::GetDegreeFromLatQstr(this->text(), 0);
 }
-double SeCommonLineEditLat::getRad(){
-    if (!m_bState)
-    {
-        return 0.0;
-    }
-    return SeCommonTranslater::GetDegreeFromLatQstr(this->text(), 0)*3.1415926/180;
-}
 
 void SeCommonLineEditLat::textEditing(const QString& text){
     if (!m_bState && !m_bEditState)

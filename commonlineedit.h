@@ -66,7 +66,6 @@ class SeCommonLineEditLat: public QLineEdit {
 public:
     ~SeCommonLineEditLat(void);
     SeCommonLineEditLat(QWidget* parent);
-    double getRad();
     double getDegree();
     void inputText(double dLat);
     void SetValid(bool bState, QString strText = QString::fromLocal8Bit("--°--'.----"));
